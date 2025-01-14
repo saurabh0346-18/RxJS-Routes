@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { LocalStorageService } from './services/local-storage.service';
-import { HighlightDirective } from './directives/highlight.directive';  // Ensure correct path
-import { FilterPipe } from './pipes/filter.pipe'; 
-import { CommonModule } from '@angular/common'; // Ensure correct path
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { TodoComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
-    TodoItemComponent,
-    SearchBarComponent,
+    HomeComponent, // Declare HomeComponent here
+    AboutComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    CommonModule, 
-    FilterPipe, 
-    HighlightDirective,
   ],
-  providers: [LocalStorageService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

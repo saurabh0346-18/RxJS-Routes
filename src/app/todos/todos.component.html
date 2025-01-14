@@ -1,0 +1,74 @@
+<div class="p-4">
+  <!-- Search Input -->
+  <div class="mb-4">
+    <input
+      type="text"
+      placeholder="Search tasks..."
+      (input)="onSearch($event)"
+      class="border p-2 w-full"
+    />
+  </div>
+
+  <!-- Task Input Form -->
+  <div class="mb-4">
+    <input
+      type="text"
+      [(ngModel)]="newTaskText"
+      placeholder="Enter task"
+      class="border p-2 w-full mb-2"
+    />
+    <input
+      type="text"
+      [(ngModel)]="newTaskDescription"
+      placeholder="Enter description"
+      class="border p-2 w-full mb-2"
+    />
+    <select [(ngModel)]="newTaskPriority" class="border p-2 w-full mb-2">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <input
+      type="date"
+      [(ngModel)]="newTaskDueDate"
+      class="border p-2 w-full mb-2"
+    />
+    <button (click)="addTodo()" class="bg-blue-500 text-white p-2 w-full">
+      Add Task
+    </button>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="mb-4">
+    <button (click)="toggleDarkMode()" class="bg-gray-800 text-white p-2">
+      Toggle Dark Mode
+    </button>
+  </div>
+
+  <!-- Bulk Actions -->
+  <div class="mb-4">
+    <button (click)="bulkComplete()" class="bg-green-500 text-white p-2">
+      Mark Selected as Completed
+    </button>
+    <button (click)="bulkDelete()" class="bg-red-500 text-white p-2">
+      Delete Selected
+    </button>
+  </div>
+
+  <!-- To-Do List -->
+  <div>
+    <h2 class="text-xl">To-Do List</h2>
+    <ul>
+      <li *ngFor="let todo of getFilteredTodos()">
+        <input
+          type="checkbox"
+          [(ngModel)]="todo.selected"
+          class="mr-2"
+        />
+        <span [ngClass]="{'line-through': todo.completed}">{{ todo.text }}</span>
+        <button (click)="toggleTodoCompletion(todo.id)" class="ml-2">Toggle Completion</button>
+        <button (click)="deleteTodo(todo.id)" class="ml-2">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>

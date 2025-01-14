@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark button {
+    background-color: #ffffff;
+    color: #121212;
+  }
+  
