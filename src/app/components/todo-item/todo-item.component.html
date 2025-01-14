@@ -1,0 +1,20 @@
+<div
+  class="flex justify-between items-center p-2 border rounded mb-2"
+  [appHighlight]="todo.completed"
+>
+  <span [class.line-through]="todo.completed">{{ todo.text }}</span>
+  <div>
+    <button
+      class="bg-green-500 text-white p-1 rounded mr-2"
+      (click)="toggle.emit(todo.id)"
+    >
+      Complete
+    </button>
+    <button
+      class="bg-red-500 text-white p-1 rounded"
+      (click)="delete.emit(todo.id)"
+    >
+      Delete
+    </button>
+  </div>
+</div>
